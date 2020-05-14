@@ -17,6 +17,8 @@
  *
  */
 /* eslint-env browser */
+import BaconHandler from './BaconHandler';
+
 (function() {
   'use strict';
 
@@ -76,4 +78,12 @@
   }
 
   // Your custom JavaScript goes here
+  const baconButton = document.getElementById('baconButton');
+  const baconImage = document.getElementById('baconImage');
+  const baconContainer = document.getElementById('bacon-container');
+
+  new BaconHandler(baconButton, baconImage, baconContainer);
+
+
+  // baconButton.addEventListener('click', baconHandler.clickHandler);
 })();
