@@ -2,11 +2,11 @@
 export default class ParticleEffect {
   /**
    * Create a ParticleEffect.
-   * @param  {string} container
-   * @param  {string} left
-   * @param  {string} top
-   * @param  {string} amount
-   * @param  {string} bg
+   * @param  {string} container - Container for the particle effect.
+   * @param  {string} left - Left offset from the edge of the container.
+   * @param  {string} top - Top offset from the edge of the container.
+   * @param  {string} amount - Amount of particle elements.
+   * @param  {string} bg - Background for the single particle effect.
    */
   constructor(container, left, top, amount, bg) {
     this.container = container;
@@ -15,14 +15,21 @@ export default class ParticleEffect {
     this.amount = amount;
     this.background = bg;
   }
+
   /**
+   * Function called to create a proper amount of particles.
    */
   pop() {
     for (let i = 0; i < this.amount; i++) {
       this.createParticle();
     }
   }
+
   /**
+   * Function called to create a single particle.
+   * Creating particle as a HTML Element.
+   * Setting random values of size, destination, delay and rotation.
+   * Appending particle to the given container.
    */
   createParticle() {
     const particle = document.createElement('particle');
@@ -67,7 +74,8 @@ export default class ParticleEffect {
     animation.onfinish = this.removeParticle;
   }
   /**
-   * @param  {string} e
+   * Function called to remove HTML element of a particle.
+   * @param  {AnimationPlaybackEvent} e - Event of an animation.
    */
   removeParticle(e) {
     e.srcElement.effect.target.remove();

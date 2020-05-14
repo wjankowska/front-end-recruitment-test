@@ -1,19 +1,21 @@
 import BaconImage from './BaconImage';
+import ParticleEffect from './ParticleEffect';
+import {getRandomInt} from './utils';
 import {fromEvent, interval} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 
 /**
  * Class responsible for handling the button click.
- * After clicking a button new BeaconImage is created.
+ * After clicking a button new BeaconImage and ParticleEffect are created.
 */
 export default class BaconHandler {
   /**
-   * Create a BaconHandler.
-   * Assign debounced event onClick to a button.
+   * Creating a BaconHandler.
+   * Assigning debounced event onClick to a button.
    * @param  {HTMLElement} button - Button generating bacon images after click.
    * @param  {HTMLImageElement} image - Image copied after clicking the button.
    * @param  {HTMLElement} container - Container that holds
-   *                                   the new beacon images.
+   *                                   the new beacon image and particle effect.
    */
   constructor(button, image, container) {
     this.classes = {
@@ -35,17 +37,39 @@ export default class BaconHandler {
 
   /**
    * Function called when the button is clicked.
-   * After clicking a button a new BaconImage object is created.
+   * Creating a container for an image and particles and adding styles to it.
+   * Creating a new ParticleEffect and BaconImage objects which will add
+   * the HTML elements they create to the container.
+   * Appending the container with particles and image to the DOM.
    */
   clickHandler() {
+    const size = window.innerWidth < 787 ? 100 : 150;
+    const top = getRandomInt(0, window.innerHeight - size);
+    const left = getRandomInt(0, window.innerWidth - size);
+
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add(this.classes.baconContent);
+    imgContainer.style.zIndex = '999';
+    imgContainer.style.top = top + 'px';
+    imgContainer.style.left = left + 'px';
+
+    const particleEffect = new ParticleEffect(
+      imgContainer,
+      size / 2,
+      size / 2,
+      80,
+      this.baconParticleImage
+    );
+    particleEffect.pop();
+
     const bacon = new BaconImage(
+      imgContainer,
       this.image.src,
-      this.baconParticleImage,
-      this.classes,
-      this.container
+      size
     );
 
     bacon.createImage();
+    this.container.appendChild(imgContainer);
   }
 }
 
