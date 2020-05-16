@@ -50,6 +50,7 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="fonts/css/fontello.css" />
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -75,16 +76,16 @@
             <img src="http://media.washtimes.com.s3.amazonaws.com/media/image/2015/02/23/bacon.jpg" id="baconImage" alt="Bacon" style="width: 100%; height: 100%;">
           </section>
         </div>
-        <div class="mdl-layout__tab-panel" id="checkout" class="checkout-panel">
-          <form>
-            <section>
-              <!-- <div class="col-2"> -->
+        <div class="mdl-layout__tab-panel checkout-panel" id="checkout">
+          <div class="checkout-panel__container">
+            <form>
+              <section>
                 <div class="checkout-panel__header">
                   <h3>Personal information</h3>
                 </div>
-                <div class="flex-wrapper checkout-panel__container">
-                  <div class="col-8">
-                    <div class="flex-wrapper">
+                <div class="flex-wrapper checkout-panel__content xs-flex-column">
+                  <div class="col-8 sm-col-7">
+                    <div class="flex-wrapper sm-flex-column">
                       <div class="col-6">
                         <div class="checkout-panel__label">
                           <label>First name</label>
@@ -105,9 +106,10 @@
                       <input type="text" placeholder="elon@spacex.com" />
                     </div>
 
-                    <div class="flex-wrapper">
+                    <div class="flex-wrapper sm-flex-column">
                       <div class="col-6">
                         <div class="checkout-panel__option">
+                          <label>Country</label>
                           <select>
                             <option value="united-states">United States</option>
                             <option value="united-kingdom">United Kingdom</option>
@@ -129,81 +131,95 @@
                       <input type="text" placeholder="(212) 692-93-92" />
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 sm-col-5">
                     <div class="checkout-pannel__summary">
-                      <h4>Your order</h4>
-                      <div class="checkout-pannel__summary-section">
-                        <div class="checkout-panel__price">
-                          <p>Apple Watch Sport</p>
-                          <p>$ 580</p>
+                      <div class="checkout-panel__summary-border">
+                        <h4>Your order</h4>
+                        <div class="checkout-pannel__summary-section">
+                          <div class="checkout-panel__price">
+                            <p>Apple Watch Sport</p>
+                            <p>$ 580</p>
+                          </div>
+                          <div class="checkout-panel__price">
+                            <p>Modern Buckle</p>
+                            <p>$ 380</p>
+                          </div>
                         </div>
-                        <div class="checkout-panel__price">
-                          <p>Modern Buckle</p>
-                          <p>$ 380</p>
-                        </div>
-                      </div>
 
-                      <div class="checkout-pannel__summary-section">
-                        <div class="checkout-panel__price">
-                          <p>Total purchases</p>
-                          <p>$ 960</p>
+                        <div class="checkout-pannel__summary-section">
+                          <div class="checkout-panel__price">
+                            <p>Total purchases</p>
+                            <p>$ 960</p>
+                          </div>
+                          <div class="checkout-panel__price">
+                            <p>Estimated Tac</p>
+                            <p>$ 0</p>
+                          </div>
                         </div>
-                        <div class="checkout-panel__price">
-                          <p>Estimated Tac</p>
-                          <p>$ 0</p>
-                        </div>
-                      </div>
 
-                      <div class="checkout-pannel__summary-price">
-                        <div class="checkout-panel__price">
-                          <p><b>Total</b></p>
-                          <p class="final-price"><b>$ 960</b></p>
+                        <div class="checkout-pannel__summary-price">
+                          <div class="checkout-panel__price">
+                            <p><b>Total</b></p>
+                            <p class="final-price"><b>$ 960</b></p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div> 
-              <!-- </div> -->
-              <!-- <div class="col-1"> -->
-            </section>
+              </section>
 
-            <section>
-              <div class="checkout-panel__header">
-                <h3>Payments details</h3>
-              </div>
-              <div class="checkout-panel__container">
-                <div class="checkout-panel__label">
-                  <label>Credit card number</label>
-                  <div class="flex-wrapper">
-                    <input type="text" placeholder="0000 – 0000 – 0000 – 0000" />
-                    <img src="images/visa.png" />
-                  </div>
+              <section>
+                <div class="checkout-panel__header">
+                  <h3>Payments details <i class="icon-lock-filled"></i></h3>
                 </div>
-
-                <div class="flex-wrapper">
-                  <div class="col-6">
+                <div class="checkout-panel__content">
+                  <div class="col-8 sm-col-7 xs-col-12">
                     <div class="checkout-panel__label">
-                      <label>Last name</label>
-                      <input type="text" placeholder="Musk" />
+                      <div class="flex-wrapper align-items-center">
+                        <div class="flex-stretch">
+                          <label>Credit card number</label>
+                          <input type="text" placeholder="0000 – 0000 – 0000 – 0000" />
+                        </div>
+                        <div class="bordered-img">
+                          <img src="images/visa.png"/>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex-wrapper sm-flex-column">
+                      <div class="col-6">
+                        <div class="checkout-panel__label">
+                          <div class="flex-wrapper align-items-center">
+                            <div class="flex-stretch">
+                              <label>Security code</label>
+                              <input type="password" placeholder="***" />
+                            </div>
+                            <span class="rounded-icon">?</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="checkout-panel__label">
+                          <label>Email</label>
+                          <input type="text" placeholder="elon@spacex.com" />
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div>
+              </section>
 
-                  <div class="col-6">
-                    <div class="checkout-panel__label">
-                      <label>Email</label>
-                      <input type="text" placeholder="elon@spacex.com" />
-                    </div>
+              <section>
+                <div class="checkout-panel__content">
+                  <div class="col-8 sm-col-7 xs-col-12">
+                    <button class="checkout-panel__button" type="submit"><i class="icon-basket"></i>Complete purchase</button>
                   </div>
                 </div>
-              </div>
-            </section>
-
-            <section>
-              <div class="checkout-panel__container">
-                <button class="checkout-panel__button" type="submit">Complete purchase</button>
-              </div>
-            </section>
-          </form>
+              </section>
+            </form>
+          </div>
         </div>
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">

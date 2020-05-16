@@ -1,0 +1,268 @@
+.flex-wrapper {
+  display: flex;
+
+  & > div:first-of-type {
+    margin-right: 6px;
+  }
+
+  & > div:nth-of-type(2) {
+    margin-left: 6px;
+  }
+}
+
+.flex-stretch {
+  flex-grow: 1;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.col-4 {
+  width: 33.3333%;
+}
+
+.col-8 {
+  width: 66.6666%;
+}
+
+.col-6 {
+  width: 60%;
+}
+
+.checkout-panel, .mdl-demo .mdl-layout__tab-panel:not(#overview).checkout-panel {
+  background-color: #f2f2f2;
+}
+
+.mdl-demo .mdl-layout__content .checkout-panel section:not(:last-of-type) {
+  margin-bottom: 20px;
+} 
+
+.checkout-panel {
+  section, section.mdl-layout__content section:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1.37;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 20px 0;
+
+    i {
+      color: #484848;
+      margin-left: 5px;
+    }
+
+    &:before {
+      content: "1";
+      color: #fff;
+      background: #000;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      position: absolute;
+      left: -33px;
+      top: -1px;
+    }
+  }
+
+  h4 {
+    margin: 0 0 20px;
+    font-size: 0.9rem;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  section:nth-of-type(2) {
+    h3:before {
+      content: "2";
+    }
+  }
+}
+
+.checkout-panel__container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 15px 0 50px;
+}
+
+.checkout-panel__label, .checkout-panel__option {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 5px 12px 2px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 0px #00000030;
+  border-bottom: 3px solid #fff;
+  transition: 0.2s border-bottom ease;
+
+  label, input {
+    display: block;
+  }
+
+  input, select {
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    font-size: 1.23rem;
+    color: #272727;
+    outline: none;
+
+    &::placeholder {
+      font-size: 1.23rem;
+      color: #9b9b9b;
+    }
+  }
+
+  label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #3f3f3f;
+  }
+
+  .bordered-img {    
+    padding: 2px 4px;
+    border: 1px solid #dadada;
+    border-radius: 3px;
+
+    img {
+      height: 10px;
+    }
+  }
+
+  .rounded-icon {
+    border: 1px solid #c3c3c3;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #c3c3c3;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  &:focus-within {
+    border-bottom: 3px solid #6bd400;
+  }
+}
+
+.checkout-panel__option {
+  select {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    background-image: url('../../images/chevron-down-solid.svg');   
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 11px;
+  }
+}
+
+.checkout-pannel__summary {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 0px #00000030;
+  padding: 4px;
+}
+
+.checkout-panel__summary-border {
+  padding: 10px;
+  border: 2px dotted #ededed;
+}
+
+.checkout-panel__price {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin-bottom: 12px;
+    line-height: 1.27;
+    color: #000000;
+    font-size: 0.95rem;
+  }
+
+  .final-price {
+    font-size: 1.8rem;
+  }
+}
+
+.checkout-pannel__summary-section {
+  border-bottom: 2px dashed #ededed;
+  margin-bottom: 14px;
+  padding-bottom: 4px;
+
+  &:first-of-type {
+    padding-bottom: 16px;
+  }
+}
+
+.checkout-panel__button {
+  width: 100%;    
+  padding: 20px;
+  border-radius: 4px;
+  border: 0;
+  background: #6bd400;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.1rem;
+
+  i {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sm-flex-column {
+    flex-direction: column;
+
+    & > div:first-of-type,  & > div:nth-of-type(2) {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .sm-col-7 {
+    width: 58.3333%;
+  }
+
+  .sm-col-5 {
+    width: 41.6666%;
+  }
+}
+
+@media (max-width: 650px) {
+  .xs-col-12 {
+    width: 100%;
+  }
+
+  .xs-flex-column {
+    flex-direction: column;
+
+    & > div:first-of-type,  & > div:nth-of-type(2) {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .checkout-pannel__summary {
+    margin-bottom: 20px;
+  }
+
+  .checkout-panel__container {
+    padding: 0 5px 0 40px;
+  }
+}
