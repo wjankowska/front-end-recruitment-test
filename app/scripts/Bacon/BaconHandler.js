@@ -71,5 +71,12 @@ export default class BaconHandler {
     bacon.createImage();
     this.container.appendChild(imgContainer);
   }
+
+  /**
+   * Function removing all created images.
+   */
+  removeAllImages() {
+    this.container.innerHTML = '';
+  }
 }
 

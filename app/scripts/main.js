@@ -95,7 +95,11 @@ import {
   const baconImage = document.getElementById("baconImage");
   const baconContainer = document.getElementById("bacon-container");
 
-  new BaconHandler(baconButton, baconImage, baconContainer);
+  const baconHandler = new BaconHandler(baconButton, baconImage, baconContainer);
+
+  document.getElementById('checkout-href').addEventListener('click', () => {
+    baconHandler.removeAllImages();
+  })
 
   // Task 3
   const validatorHandler = new ValidatorHandler();
@@ -152,7 +156,7 @@ import {
       });
     }
   );
-  
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const valid = validatorHandler.validateAllFields();
