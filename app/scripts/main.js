@@ -3,22 +3,22 @@
  *  Web Starter Kit
  *  Copyright 2015 Google Inc. All rights reserved.
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  Licensed under the Apache License, Version 2.0 (the 'License');
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
  *
  *    https://www.apache.org/licenses/LICENSE-2.0
  *
  *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  distributed under the License is distributed on an 'AS IS' BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
  */
 /* eslint-env browser */
-import BaconHandler from "./Bacon/BaconHandler";
-import ValidatorHandler from "./Form/ValidatorHandler";
+import BaconHandler from './Bacon/BaconHandler';
+import ValidatorHandler from './Form/ValidatorHandler';
 import {
   emptyValidator,
   emailValidator,
@@ -26,10 +26,10 @@ import {
   creditCardValidator,
   expirationDateValidator,
   exactLengthValidator,
-} from "./Form/validators";
+} from './Form/validators';
 
-(function () {
-  "use strict";
+(function() {
+  'use strict';
 
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
@@ -37,9 +37,9 @@ import {
   // http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features
 
   const isLocalhost = Boolean(
-    window.location.hostname === "localhost" ||
+    window.location.hostname === 'localhost' ||
       // [::1] is the IPv6 localhost address.
-      window.location.hostname === "[::1]" ||
+      window.location.hostname === '[::1]' ||
       // 127.0.0.1/8 is considered localhost for IPv4.
       window.location.hostname.match(
         /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
@@ -47,14 +47,14 @@ import {
   );
 
   if (
-    "serviceWorker" in navigator &&
-    (window.location.protocol === "https:" || isLocalhost)
+    'serviceWorker' in navigator &&
+    (window.location.protocol === 'https:' || isLocalhost)
   ) {
     navigator.serviceWorker
-      .register("service-worker.js")
-      .then(function (registration) {
+      .register('service-worker.js')
+      .then(function(registration) {
         // updatefound is fired if service-worker.js changes.
-        registration.onupdatefound = function () {
+        registration.onupdatefound = function() {
           // updatefound is also fired the very first time the SW is installed,
           // and there's no need to prompt for a reload at that point.
           // So check here to see if the page is already controlled,
@@ -64,61 +64,66 @@ import {
             // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
             const installingWorker = registration.installing;
 
-            installingWorker.onstatechange = function () {
+            installingWorker.onstatechange = function() {
               switch (installingWorker.state) {
-                case "installed":
-                  // At this point, the old content will have been purged and the
-                  // fresh content will have been added to the cache.
-                  // It's the perfect time to display a "New content is
-                  // available; please refresh." message in the page's interface.
-                  break;
+              case 'installed':
+                // At this point, the old content will have been purged and
+                // the fresh content will have been added to the cache.
+                // It's the perfect time to display a 'New content is
+                // available; please refresh.' message in
+                // the page's interface.
+                break;
 
-                case "redundant":
-                  throw new Error(
-                    "The installing " + "service worker became redundant."
-                  );
+              case 'redundant':
+                throw new Error(
+                  'The installing ' + 'service worker became redundant.'
+                );
 
-                default:
-                // Ignore
+              default:
+              // Ignore
               }
             };
           }
         };
       })
-      .catch(function (e) {
-        console.error("Error during service worker registration:", e);
+      .catch(function(e) {
+        console.error('Error during service worker registration:', e);
       });
   }
 
   // Task 1
-  const baconButton = document.getElementById("baconButton");
-  const baconImage = document.getElementById("baconImage");
-  const baconContainer = document.getElementById("bacon-container");
+  const baconButton = document.getElementById('baconButton');
+  const baconImage = document.getElementById('baconImage');
+  const baconContainer = document.getElementById('bacon-container');
 
-  const baconHandler = new BaconHandler(baconButton, baconImage, baconContainer);
+  const baconHandler = new BaconHandler(
+    baconButton,
+    baconImage,
+    baconContainer
+  );
 
   document.getElementById('checkout-href').addEventListener('click', () => {
     baconHandler.removeAllImages();
-  })
+  });
 
   // Task 3
   const validatorHandler = new ValidatorHandler();
 
-  const inputsToValidate = document.getElementsByClassName("checkout-input");
-  const emailToValidate = document.getElementsByClassName("checkout-email");
-  const phoneToValidate = document.getElementsByClassName("checkout-phone");
+  const inputsToValidate = document.getElementsByClassName('checkout-input');
+  const emailToValidate = document.getElementsByClassName('checkout-email');
+  const phoneToValidate = document.getElementsByClassName('checkout-phone');
   const creditCardToValidate = document.getElementsByClassName(
-    "checkout-credit-card"
+    'checkout-credit-card'
   );
   const expirationDateToValidate = document.getElementsByClassName(
-    "checkout-expiration-date"
+    'checkout-expiration-date'
   );
   const securityNumberToValidate = document.getElementsByClassName(
-    "checkout-security"
+    'checkout-security'
   );
 
   const successModal = document.getElementsByClassName(
-    "checkout__success-message"
+    'checkout__success-message'
   )[0];
 
   Array.prototype.forEach.call(inputsToValidate, (field) => {
@@ -143,28 +148,28 @@ import {
   ]);
   validatorHandler.addFieldToValidate(securityNumberToValidate[0], [
     emptyValidator,
-    { validator: exactLengthValidator, param: 3 },
+    {validator: exactLengthValidator, param: 3},
   ]);
 
-  const form = document.getElementById("checkout-form");
-  
+  const form = document.getElementById('checkout-form');
+
   Array.prototype.forEach.call(
-    [...successModal.getElementsByClassName("close"), successModal],
+    [...successModal.getElementsByClassName('close'), successModal],
     (el) => {
-      el.addEventListener("click", () => {
-        successModal.classList.remove("visible");
+      el.addEventListener('click', () => {
+        successModal.classList.remove('visible');
       });
     }
   );
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     const valid = validatorHandler.validateAllFields();
 
     if (valid) {
       form.reset();
-      if (!successModal.classList.contains("visible")) {
-        successModal.classList.add("visible");
+      if (!successModal.classList.contains('visible')) {
+        successModal.classList.add('visible');
       }
     }
   });
