@@ -78,7 +78,7 @@
         </div>
         <div class="mdl-layout__tab-panel checkout-panel" id="checkout">
           <div class="checkout-panel__container">
-            <form>
+            <form id="checkout-form">
               <section>
                 <div class="checkout-panel__header">
                   <h3>Personal information</h3>
@@ -87,48 +87,65 @@
                   <div class="col-8 sm-col-7">
                     <div class="flex-wrapper sm-flex-column">
                       <div class="col-6">
-                        <div class="checkout-panel__label">
-                          <label for="form-first-name">First name</label>
-                          <input type="text" placeholder="Elon" id="form-first-name"/>
+                        <div class="checkout-panel__label checkout-input">
+                          <div class="label-container">
+                            <label for="form-first-name">First name</label>
+                            <input type="text" placeholder="Elon" id="form-first-name"/>
+                          </div>
+                          <span class="validation-message"></span>
                         </div>
                       </div>
 
                       <div class="col-6">
-                        <div class="checkout-panel__label">
-                          <label for="form-last-name">Last name</label>
-                          <input type="text" placeholder="Musk" id="form-last-name"/>
+                        <div class="checkout-panel__label checkout-input">
+                          <div class="label-container">
+                            <label for="form-last-name">Last name</label>
+                            <input type="text" placeholder="Musk" id="form-last-name"/>
+                          </div>
+                          <span class="validation-message"></span>
                         </div>
                       </div>
                     </div>
 
-                    <div class="checkout-panel__label">
-                      <label for="form-email">Email</label>
-                      <input type="text" placeholder="elon@spacex.com" id="form-email"/>
+                    <div class="checkout-panel__label checkout-email">
+                      <div class="label-container">
+                        <label for="form-email">Email</label>
+                        <input type="text" placeholder="elon@spacex.com" id="form-email"/>
+                      </div>
+                      <span class="validation-message"></span>
                     </div>
 
                     <div class="flex-wrapper sm-flex-column">
                       <div class="col-6">
                         <div class="checkout-panel__option">
-                          <label for="form-country">Country</label>
-                          <select id="form-country">
-                            <option value="united-states">United States</option>
-                            <option value="united-kingdom">United Kingdom</option>
-                            <option value="poland">Poland</option>
-                          </select>
+                          <div class="label-container">
+                            <label for="form-country">Country</label>
+                            <select id="form-country">
+                              <option value="united-states">United States</option>
+                              <option value="united-kingdom">United Kingdom</option>
+                              <option value="poland">Poland</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
 
                       <div class="col-6">
-                        <div class="checkout-panel__label">
-                          <label for="form-postal-code">Postal Code</label>
-                          <input type="text" placeholder="10001" id="form-postal-code"/>
+                        <div class="checkout-panel__label checkout-input">
+                          <div class="label-container">
+                            <label for="form-postal-code">Postal Code</label>
+                            <input type="text" placeholder="10001" id="form-postal-code" maxlength="8"/>
+                          </div>
+                          <span class="validation-message"></span>
                         </div>
                       </div>
                     </div>
 
-                    <div class="checkout-panel__label">
-                      <label for="form-phone-number">Phone Number</label>
-                      <input type="text" placeholder="(212) 692-93-92" id="form-phone-number"/>
+                    <div class="checkout-panel__label checkout-phone">
+                      <div class="label-container">
+                        <label for="form-phone-number">Phone Number</label>
+                        <input type="text" placeholder="(212) 692-93-92" id="form-phone-number" maxlength="15"/>
+                      </div>
+                      <span class="validation-message"></span>
                     </div>
                   </div>
                   <div class="col-4 sm-col-5">
@@ -175,35 +192,44 @@
                 </div>
                 <div class="checkout-panel__content">
                   <div class="col-8 sm-col-7 xs-col-12">
-                    <div class="checkout-panel__label">
-                      <div class="flex-wrapper align-items-center">
-                        <div class="flex-stretch">
-                          <label for="form-credit-card">Credit card number</label>
-                          <input type="text" placeholder="0000 – 0000 – 0000 – 0000" id="form-credit-card"/>
-                        </div>
-                        <div class="bordered-img">
-                          <img src="images/visa.png"/>
+                    <div class="checkout-panel__label checkout-credit-card">
+                      <div class="label-container">
+                        <div class="flex-wrapper align-items-center">
+                          <div class="flex-stretch">
+                            <label for="form-credit-card">Credit card number</label>
+                            <input type="text" placeholder="0000 – 0000 – 0000 – 0000" id="form-credit-card" maxlength="19"/>
+                          </div>
+                          <div class="bordered-img">
+                            <img src="images/visa.png"/>
+                          </div>
                         </div>
                       </div>
+                      <span class="validation-message"></span>
                     </div>
 
                     <div class="flex-wrapper sm-flex-column">
                       <div class="col-6">
-                        <div class="checkout-panel__label">
-                          <div class="flex-wrapper align-items-center">
-                            <div class="flex-stretch">
-                              <label for="form-security-code">Security code</label>
-                              <input type="password" placeholder="***" id="form-security-code"/>
+                        <div class="checkout-panel__label checkout-security">
+                          <div class="label-container">
+                            <div class="flex-wrapper align-items-center">
+                              <div class="flex-stretch">
+                                <label for="form-security-code">Security code</label>
+                                <input type="password" placeholder="***" id="form-security-code" maxlength="3"/>
+                              </div>
+                              <span class="rounded-icon">?</span>
                             </div>
-                            <span class="rounded-icon">?</span>
                           </div>
+                          <span class="validation-message"></span>
                         </div>
                       </div>
 
                       <div class="col-6">
-                        <div class="checkout-panel__label">
-                          <label for="form-expiration">Expiration date</label>
-                          <input type="text" placeholder="MM / YY" id="form-expiration"/>
+                        <div class="checkout-panel__label checkout-expiration-date">
+                          <div class="label-container">
+                            <label for="form-expiration">Expiration date</label>
+                            <input type="text" placeholder="MM / YY" id="form-expiration" maxlength="5"/>
+                          </div>
+                          <span class="validation-message"></span>
                         </div>
                       </div>
                     </div>
@@ -277,6 +303,16 @@
       </main>
     </div>
     <div id="bacon-container"></div>
+    <div class="checkout__success-message">
+      <div class="success-message-content">
+        <div class="success-message-close">
+          <button class="close"><i class="icon-cancel"></i></button>
+        </div>
+        <h5>Success!</h5>
+        <p>Payment was successfully completed.</p>
+        <button class="success-message-continue close">Continue</button>
+      </div>
+    </div>
 
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <!-- build:js(app/) scripts/main.min.js -->

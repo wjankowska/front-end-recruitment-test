@@ -1,6 +1,6 @@
 import BaconImage from './BaconImage';
 import ParticleEffect from './ParticleEffect';
-import {getRandomInt} from './utils';
+import {getRandomInt} from '../utils';
 import {fromEvent, interval} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 
