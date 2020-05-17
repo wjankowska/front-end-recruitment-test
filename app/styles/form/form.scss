@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .flex-wrapper {
   display: flex;
 
@@ -31,7 +33,7 @@
 }
 
 .checkout-panel, .mdl-demo .mdl-layout__tab-panel:not(#overview).checkout-panel {
-  background-color: #f2f2f2;
+  background-color: $color-light-gray;
 }
 
 .mdl-demo .mdl-layout__content .checkout-panel section:not(:last-of-type) {
@@ -46,7 +48,7 @@
   h1, h2, h3, h4, h5 {
     text-transform: uppercase;
     font-weight: bold;
-    color: #000000;
+    color: $color-black;
     line-height: 1.37;
   }
 
@@ -55,14 +57,14 @@
     margin: 20px 0;
 
     i {
-      color: #484848;
+      color: $color-dark-gray;
       margin-left: 5px;
     }
 
     &:before {
       content: "1";
-      color: #fff;
-      background: #000;
+      color: $color-white;
+      background: $color-black;
       display: inline-block;
       width: 20px;
       height: 20px;
@@ -100,25 +102,25 @@
 
 .checkout-panel__label, .checkout-panel__option {
   .label-container {
-    background-color: #fff;
+    background-color: $color-white;
     margin-bottom: 20px;
     padding: 5px 12px 2px;
     border-radius: 4px;
     box-shadow: 0px 1px 2px 0px #00000030;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid $color-white;
     transition: 0.2s border-bottom ease;
 
     &:focus-within {
-      border-bottom: 3px solid #6bd400;
+      border-bottom: 3px solid $color-green;
     }
   }
 
   &.checkout-invalid .label-container {
-    border-bottom: 3px solid #f00000;
+    border-bottom: 3px solid $color-red;
   }
 
   .validation-message {
-    color: #f00000;
+    color: $color-red;
     margin-top: -21px;
     display: block;
     position: absolute;
@@ -135,24 +137,24 @@
     border: none;
     background-color: inherit;
     font-size: 1.23rem;
-    color: #272727;
+    color: $color-very-dark-gray;
     outline: none;
 
     &::placeholder {
       font-size: 1.23rem;
-      color: #9b9b9b;
+      color: $color-middle-gray;
     }
   }
 
   label {
     font-size: 0.85rem;
     font-weight: bold;
-    color: #3f3f3f;
+    color: $color-dark-gray;
   }
 
   .bordered-img {    
     padding: 2px 4px;
-    border: 1px solid #dadada;
+    border: 1px solid $color-middle-light-gray;
     border-radius: 3px;
     flex-shrink: 0; 
     flex-grow: 0;
@@ -163,14 +165,14 @@
   }
 
   .rounded-icon {
-    border: 1px solid #c3c3c3;
+    border: 1px solid $color-middle-light-gray;
     width: 20px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: #c3c3c3;
+    color: $color-middle-light-gray;
     font-size: 1.2rem;
     cursor: pointer;
     flex-shrink: 0; 
@@ -191,7 +193,7 @@
 }
 
 .checkout-pannel__summary {
-  background-color: #ffffff;
+  background-color: $color-white;
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #00000030;
   padding: 4px;
@@ -199,7 +201,7 @@
 
 .checkout-panel__summary-border {
   padding: 10px;
-  border: 2px dotted #ededed;
+  border: 2px dotted $color-very-light-gray;
 }
 
 .checkout-panel__price {
@@ -209,7 +211,7 @@
   p {
     margin-bottom: 12px;
     line-height: 1.27;
-    color: #000000;
+    color: $color-black;
     font-size: 0.95rem;
   }
 
@@ -219,7 +221,7 @@
 }
 
 .checkout-pannel__summary-section {
-  border-bottom: 2px dashed #ededed;
+  border-bottom: 2px dashed $color-very-light-gray;
   margin-bottom: 14px;
   padding-bottom: 4px;
 
@@ -233,10 +235,10 @@
   padding: 20px;
   border-radius: 4px;
   border: 0;
-  background: #6bd400;
-  border-bottom: 3px solid #5CB204;
+  background: $color-green;
+  border-bottom: 3px solid $color-dark-green;
   cursor: pointer;
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.1rem;
@@ -257,7 +259,7 @@
   transition: 0.2s;
 
   .success-message-content {
-    background: #fff;
+    background: $color-white;
     max-width: 300px;
     border-radius: 4px;
     box-shadow: 0px 1px 10px 0px #00000030;
@@ -277,20 +279,20 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: #bdbdbd;
+      color: $color-gray;
       font-size: 1.5rem;
     }
   }
 
   h5 {
     margin: 5px 0 20px;
-    color: #6bd400;
+    color: $color-green;
     text-align: center;
     font-size: 1.7rem;
   }
 
   p {
-    color: #b0b0b0;
+    color: $color-gray;
     text-align: center;
   }
 
@@ -299,9 +301,9 @@
     padding: 10px;
     border-radius: 4px;
     border: 0;
-    background: #6bd400;
-    border-bottom: 2px solid #5CB204;
-    color: #fff;
+    background: $color-green;
+    border-bottom: 2px solid $color-dark-green;
+    color: $color-white;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.9rem;
